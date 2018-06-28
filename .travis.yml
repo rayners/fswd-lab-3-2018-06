@@ -1,5 +1,11 @@
 language: node_js
 
 cache:
-  directories:
-      - node_modules
+    directories:
+        - node_modules
+
+deploy:
+    provider: heroku
+    api_key:
+        secure: "YOmiZ5JxbRH3hCtxefIupkYhF8MYZarsXqrYe5Ez65k+qdeCffgmPnd1RabQpKzcaH1j2gonkvtXwBt6O9PlaGCFomJIDFzLFNHl3mLiK/AoDlxR1vK3cxGS/24/+do3zimkLEIAAgiX2vQvewkn/shQfjJ1m2sJD4HdzlhQ/eUAhTEPeaW6lC2lpjldukYzFisrY9C180rLDcs08f0Rd87vIy4HMih9MwzRjK4eMK+drLILryThGM/xdaUbJWUTnP+ioTqzJ97uUkOeLwHaW0W8ZwAiJc9bq7FAkTVsvCOpke6lDgUQWn4p7jPkO61Run5rcxPpJn+L77dkacsgmBntyEcyOK4rjFm12wsRpWV202RAvPTuouhHECltnWx3ATP6eVvqOl7BuVGqEtTj7lDR8Lrj6gOvKzBy8y5xNOQa3EIsBGotMCMikH0xl5lhbYvOoxqYe9smfuc/pXxgWtl3gwCHiu2tfpG5Pw6+f5tY71NoN3lbNRAYP3vf9HQPDGxvPjWnNbDlCkYyQyUvao35m0z6qNWWaOSWQDt6Mh8fUoQ936u+U+eg+r3HaXyx3SqhQ60iV0jlvP8I0ni8Lfm/mDciWxbWsmjK6Pv5n3+R2+Vzt/dKo5QBHfECY4p058z8HOc4/UMYhbf8oSKsR7OkhTLGGLTHz/T40dbnm2Q="
+    app: morning-mesa-92721
