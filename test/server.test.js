@@ -63,19 +63,3 @@ describe('registration page', function() {
             .expect(200, /Register!/);
     })
 });
-
-// describe('server', function() {
-//     it('should respond with "Hello world!" on /', function() {
-//         return request(server)
-//             .get('/')
-//             .expect(200, /Hello world!/);
-//     });
-//
-//     ['David', 'John', 'Lee'].forEach(function(name) {
-//         it('should respond with "Hello, ' + name + '!" on /' + name, function(done) {
-//             request(server)
-//                 .get('/' + name)
-//                 .expect(200, 'Hello, ' + name + '!', done);
-//         });
-//     });
-// });

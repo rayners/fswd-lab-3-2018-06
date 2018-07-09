@@ -1,8 +1,18 @@
 'use strict';
+
+var moment = require('moment');
+
 module.exports = (sequelize, DataTypes) => {
   var Task = sequelize.define('Task', {
     name: DataTypes.STRING,
-    completedAt: DataTypes.DATE
+    completedAt: DataTypes.DATE,
+    dueAt: {
+      type: DataTypes.DATE,
+      get: function() {
+        var dueAt = this.getDataValue('dueAt');
+        return dueAt ? moment(this.getDataValue('dueAt')) : dueAt ;
+      }
+    }
   }, {
     scopes: {
       complete: {
@@ -56,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Task.prototype.markComplete = function() {
     return this.update({ completedAt: new Date() });
-  }
+  };
 
   return Task;
 };

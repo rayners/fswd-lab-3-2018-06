@@ -1,10 +1,14 @@
 html
     head
+        //- script(src="https://code.jquery.com/jquery-3.3.1.js"
+        //-       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        //-       crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
         title Hello world!
     body
-        p FSWD: #{season} #{year} header goes here
+        p.header FSWD: #{season} #{year} header goes here
         block body
-        p FSWD: #{season} #{year} footer goes here
+        p.footer FSWD: #{season} #{year} footer goes here
         p Last task viewed: #{lastTaskViewed}
         if authenticated
             p You're in!
@@ -14,3 +18,4 @@ html
             a(href='/users/login') Login
             br
             a(href='/users/register') Register
+        script(src="/app.js")

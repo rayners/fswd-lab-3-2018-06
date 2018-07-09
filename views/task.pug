@@ -5,5 +5,17 @@ block body
     p #{task.name}
 
     if !task.isComplete()
+
+        if task.dueAt
+            p Due: #{task.dueAt.fromNow()}
+        else
+            p No due date? Lazy!
+            form(method="POST" action="/tasks/" + task.id + "/setDue")
+                input(name="dueAt" type="date")
+                br
+                button(type="submit") Set due date
+
         form(method="POST" action="/tasks/" + task.id + "/complete")
             button(type="submit") Complete!
+    else
+        p #[b Completed:] #{task.completedAt}

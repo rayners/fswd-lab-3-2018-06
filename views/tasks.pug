@@ -1,6 +1,8 @@
 extends ./layout
 
 block body
+    script.
+        var tasks = [#{completedTasks[0].id}];
     h1 Tasks
 
     if completedTasks
@@ -21,3 +23,18 @@ block body
     form(method="POST" action="/tasks")
         input(type='text' name='name')
         button(type='submit') Submit
+
+    hr
+
+    #jqueryTasks
+        ul
+
+        input#jqueryTask(type="text")
+        button Add task
+
+    hr
+
+    #vueTasks
+        | {{ message }}
+
+    hr
