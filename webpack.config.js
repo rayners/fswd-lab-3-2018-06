@@ -1,4 +1,7 @@
-var path = require('path');
+var path = require('path'),
+    webpack = require('webpack');
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './app/index.js',
@@ -7,14 +10,50 @@ module.exports = {
       publicPath: '/',
       filename: 'bundle.js'
   },
+  resolve: {
+      modules: [path.resolve(__dirname, "app"), "node_modules"],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+        }
+  },
+  mode: "development",
+
   module: {
-    loaders: [
-      // the url-loader uses DataUrls.
-      // the file-loader emits files.
-      {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
-      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
-      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'},
-      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml'}
-    ]
-  }
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
+      }
+    ]    
+  },
+
+  plugins: [
+    new VueLoaderPlugin()
+  ]
+  // module: {
+  //     loaders: [
+  //         {
+  //             test: /\.css$/,
+  //             use: [ 'style-loader', 'css-loader' ]
+  //         },
+  //         {
+  //             test: /\.vue$/,
+  //             use: ['vue-loader']
+  //         }
+  //     ]
+  // },
+
+  // plugins: [
+  //     new webpack.ProvidePlugin({
+  //       $: 'jquery',
+  //       jQuery: 'jquery',
+  //       'window.jQuery': 'jquery',
+  //       Popper: ['popper.js', 'default'],
+  //     })
+  // ],
+  // devtool: 'inline-source-map'
 };
