@@ -1,5 +1,5 @@
 <template>
-<li>Task #{{task.id}} {{ task.name }}</li>
+<li><router-link :to="'/tasks/' + task.id">Task #{{task.id}} {{ task.name }}</router-link></li>
 </template>
 
 <script>

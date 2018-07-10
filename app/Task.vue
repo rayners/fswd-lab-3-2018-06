@@ -1,8 +1,7 @@
-<template>
-<div>
-    <p>Name: {{ name }}</p>
-    <p>Status: {{ status }}</p>
-</div>
+<template lang="pug">
+div
+    p Name: {{ name }}
+    p Status: {{ status }}
 </template>
 
 <script>
