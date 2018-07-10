@@ -1,5 +1,5 @@
 <template>
-<li>{{ task }}</li>
+<li>Task #{{task.id}} {{ task.name }}</li>
 </template>
 
 <script>

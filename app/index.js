@@ -2,10 +2,10 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Vue from 'vue';
 import App from './App.vue';
-
-console.log('Hi with bootstrap');
+import router from './router';
 
 new Vue({
     el: '#vueTasks',
+    router,
     render: h => h(App)
 });

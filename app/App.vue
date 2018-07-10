@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <h1>My stuff is here!</h1>
+    <div class="container">
+        <router-view></router-view>
+        <!-- <h1>My stuff is here!</h1>
         <task-list v-bind:tasks="tasks"></task-list>
         <input v-model="newTask">
-        <button v-on:click="addTask">Add Task</button>
+        <button v-on:click="addTask">Add Task</button> -->
     </div>
 </template>
 
