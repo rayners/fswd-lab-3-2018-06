@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        {{ user }}
+        <p v-if="user">Hi: {{ user.username }}</p>
         <router-view></router-view>
         <!-- <h1>My stuff is here!</h1>
         <task-list v-bind:tasks="tasks"></task-list>
@@ -9,6 +11,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import TaskList from './TaskList.vue';
 
 export default {
@@ -24,10 +27,23 @@ export default {
             tasks: []
         };
     },
+    computed: mapState(['user']),
+    // computed: {
+    //     user() {
+    //         return this.$store.state.user;
+    //     },
+    //     username() {
+    //         return this.user && this.user.username;
+    //     }
+    // },
     methods: {
         addTask: function() {
             this.tasks.push(this.newTask);
         }
+    },
+    created() {
+        // ?? is the user logged in?
+        this.$store.dispatch('checkLogin');
     }
 }
 </script>

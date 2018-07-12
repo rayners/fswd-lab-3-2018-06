@@ -1,18 +1,13 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 import TaskList from './TaskList.vue';
 import Task from './Task.vue';
+import Register from './Register.vue';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
+export default new VueRouter({
     routes: [
-    // {
-    //     path: '/',
-    //     component: {
-    //         template: '<h1>Hi</h1>'
-    //     }
-    // },
         {
             path: '/tasks',
             component: TaskList
@@ -21,6 +16,10 @@ export default new Router({
             path: '/tasks/:id',
             component: Task,
             props: true
+        },
+        {
+            path: '/register',
+            component: Register
         }
     ]
 });
