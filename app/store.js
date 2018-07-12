@@ -14,15 +14,15 @@ export default new Vuex.Store({
         setUser(state, user) {
             console.log('setting user!');
             console.log(user);
-            state.user = user;
-            state.isLoggedIn = !!user;
+            Vue.set(state, 'user', user);
+            Vue.set(state, 'isLoggedIn', !!user);
         }
     },
     actions: {
         checkLogin(store) {
             axios.get('http://localhost:8000/users/isLoggedIn')
                 .then(response => {
-                    console.log(response);
+                    console.log(response.data);
                     if (response.data.user) {
                         store.commit('setUser', response.data.user);
                     } else {
@@ -36,8 +36,8 @@ export default new Vuex.Store({
                 password: userInfo.password,
                 password_confirm: userInfo.password_confirm
             })
-                .then(response => {
-                    store.commit('setUser', response.data.user);
+                .then(response => {                    
+                    store.commit('setUser', response.data);
                     router.push('/tasks');
                 });
     
