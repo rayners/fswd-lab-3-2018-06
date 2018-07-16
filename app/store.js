@@ -20,7 +20,6 @@ export default new Vuex.Store({
         checkLogin(store) {
             axios.get('http://localhost:8000/users/isLoggedIn')
                 .then(response => {
-                    console.log(response.data);
                     if (response.data.user) {
                         store.commit('setUser', response.data.user);
                     } else {
