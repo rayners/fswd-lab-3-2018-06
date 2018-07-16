@@ -43,13 +43,6 @@ export default {
         }
     },
     watch: {
-        // username: _.debounce(function(value) {
-        //         console.log('Making the request!');
-        //         axios.get('http://localhost:8000/users/isAvailable?username=' + value)
-        //             .then(response => {
-        //                 this.usernameIsAvailable = response.data.isAvailable;
-        //             });
-        //     })
         username(value) {
             console.log('Making the request!');
             axios.get('http://localhost:8000/users/isAvailable?username=' + value)

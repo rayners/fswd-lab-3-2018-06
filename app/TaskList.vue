@@ -26,9 +26,6 @@ export default {
         TitledTaskList,
         AddTask
     },
-    computed: mapGetters(['completedTasks', 'incompleteTasks']),
-    mounted() {
-        this.$store.dispatch('getTasks');
-    }
+    computed: mapGetters(['completedTasks', 'incompleteTasks'])
 };
 </script>

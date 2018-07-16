@@ -6,15 +6,12 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
     props: ['id'],
-    data: function() {
-        return {
-            task: {}
-        };
-    },
     computed: {
+        task() {
+            return this.$store.getters.taskById(this.id) || { name: 'Unknown task' };
+        },
         name() {
             return this.task.name;
         },
@@ -25,12 +22,6 @@ export default {
                 return "Incomplete";
             }
         }
-    },
-    mounted() {
-        axios.get('http://localhost:8000/tasks/' + this.id)
-            .then(response => {
-                this.task = response.data;
-            });
     }
 };
 </script>

@@ -19,6 +19,13 @@ export default new Vuex.Store({
         incompleteTasks(state) {
             var tasks = state.tasks || [];
             return tasks.filter(task => !task.completedAt);
+        },
+        taskById(state) {
+            return (id) => {
+                var tasks = state.tasks || [],
+                    intId = parseInt(id);
+                return tasks.find(task => task.id === intId);
+            }
         }
     },
     mutations: {

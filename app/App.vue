@@ -43,6 +43,7 @@ export default {
     created() {
         // ?? is the user logged in?
         this.$store.dispatch('checkLogin');
+        this.$store.dispatch('getTasks');
     }
 }
 </script>
