@@ -12,8 +12,6 @@ export default new Vuex.Store({
     },
     mutations: {
         setUser(state, user) {
-            console.log('setting user!');
-            console.log(user);
             Vue.set(state, 'user', user);
             Vue.set(state, 'isLoggedIn', !!user);
         }
