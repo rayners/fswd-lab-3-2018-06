@@ -1,7 +1,7 @@
 <template>
 <div>
-    <p> Name: {{ name }}</p>
-    <p> Status: {{ status }}</p>
+    <p> Name: <span class='task-name'>{{ name }}</span></p>
+    <p> Status: <span class='task-status'>{{ status }}</span></p>
 </div>
 </template>
 
