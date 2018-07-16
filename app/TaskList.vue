@@ -1,33 +1,34 @@
 <template>
 <div>
-    <h1>Completed Tasks</h1>
-    <ul><task-item v-for="task in completedTasks" :key="task.id" v-bind:task="task"></task-item></ul>
+    <titled-task-list title="Completed Tasks" :tasks="completedTasks"></titled-task-list>
+    <titled-task-list title="Incomplete Tasks" :tasks="incompleteTasks"></titled-task-list>
 
-    <h1>Incomplete Tasks</h1>
-    <ul><task-item v-for="task in incompleteTasks" :key="task.id" v-bind:task="task"></task-item></ul>
+    <add-task @add-task="addTask"></add-task>
 </div>
 </template>
 
 <script>
-import axios from 'axios';
-import TaskItem from './TaskItem.vue';
+import { mapGetters } from 'vuex';
+import TitledTaskList from './TitledTaskList.vue';
+import AddTask from './AddTask.vue';
 export default {
-    components: {
-        TaskItem
-    },
     data: function() {
         return {
-            incompleteTasks: [],
-            completedTasks: []
+            newTask: ''
+        };
+    },
+    methods: {
+        addTask(newTask) {
+            this.$store.dispatch('addTask', newTask);
         }
     },
+    components: {
+        TitledTaskList,
+        AddTask
+    },
+    computed: mapGetters(['completedTasks', 'incompleteTasks']),
     mounted() {
-        axios.get('http://localhost:8000/tasks')
-            .then(response => {
-                this.incompleteTasks = response.data.incompleteTasks;
-                this.completedTasks = response.data.completedTasks;
-            });
+        this.$store.dispatch('getTasks');
     }
-    // props: ['tasks']
 };
 </script>
