@@ -1,4 +1,4 @@
 {
     "verbose": true,
-    "ignore": ["app", "dist", "index.html", "public"]
+    "ignore": ["app", "dist", "index.html", "public", "cypress"]
 }

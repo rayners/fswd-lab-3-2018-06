@@ -88,6 +88,7 @@ export default new Vuex.Store({
                     store.commit('updateTask', { id: -1, task: response.data });
                 })
                 .catch(() => {
+                    console.log('Task failed to be added!');
                     store.commit('removeTask', -1);
                 });
         }
